@@ -1,0 +1,12 @@
+[submodule "explorer"]
+	path = explorer
+	url = https://github.com/etherparty/explorer.git
+
+[submodule "monitor/eth-net-intelligence"]
+	path = monitor/eth-net-intelligence-api
+	url = https://github.com/cubedro/eth-net-intelligence-api.git
+
+[submodule "monitor/eth-netstats"]
+	path = monitor/eth-netstats
+	url = https://github.com/cubedro/eth-netstats.git
+
