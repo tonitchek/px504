@@ -179,7 +179,7 @@ function explorer() {
         cd explorer
         npm start &> /dev/null &
         sleep 4
-        firefox --new-tab http://localhost:9000 &> /dev/null &
+        firefox --new-tab http://localhost:8000 &> /dev/null &
         pidof node > ../$explorer_pid_file
         cd ..
         echo -e "Explorer done."

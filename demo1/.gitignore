@@ -1,1 +1,4 @@
 static-nodes.json
+node0*
+monitor/app.json
+*.pid
