@@ -9,7 +9,7 @@ Repository for the PX504 module "innovation project"
 
 ## Clone the repo
 git clone https://github.com/tonitchek/px504.git  
-cd px504
+cd px504  
 git submodule update --init  
 cd demo1  
 
@@ -31,7 +31,7 @@ cd ../..
 Edit the **nodes.conf** file in order to configure the local private network.  
 Syntax:  
 \<node name\>,\<RPC port\>,\<listening port\>,\<mining flag\>  
-where <mining flag> is 1 if the node must mine blocks and 0 (or anything else) if the block must not mine.  
+where \<mining flag\> is 1 if the node must mine blocks and 0 (or anything else) if the node must not mine.  
 ./demo1.sh init
 
 ### Start the nodes
@@ -42,6 +42,6 @@ where <mining flag> is 1 if the node must mine blocks and 0 (or anything else) i
 
 ### Launch Explorer or Monitor
 The network must be started before running this.  
-./demo1.sh explorer
-./demo1.sh monitor
-The ./demo1.sh stop command will stop these tools.
+./demo1.sh explorer  
+./demo1.sh monitor  
+The ./demo1.sh stop command will stop these tools.  
