@@ -24,6 +24,7 @@ grunt
 
 cd ../eth-net-intelligence-api  
 sudo npm install  
+sudo npm install -g pm2  
 cd ../..
 
 ## Launching script
