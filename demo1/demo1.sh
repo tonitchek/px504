@@ -100,7 +100,7 @@ function start() {
             if [ $2 -eq 1 ]
             then
 		#log requested. Print output to log file
-                geth --datadir $PWD/$node_name --identity $node_name --mine --minerthreads=1 --nodiscover --maxpeers 100 --networkid 170788 --rpcapi admin,eth,net,web3,miner --rpc --rpccorsdomain "*" --rpcport $rpcport --port $port --nodekey $PWD/$node_name/bootkey_$node_name.key > $node_name.log 2>&1 &
+                geth --datadir $PWD/$node_name --identity $node_name --mine --minerthreads=1 --nodiscover --maxpeers 100 --networkid 170788 --rpcapi personal,admin,eth,net,web3,miner --rpc --rpccorsdomain "*" --rpcport $rpcport --port $port --nodekey $PWD/$node_name/bootkey_$node_name.key > $node_name.log 2>&1 &
                 if [ "$miner" != "1" ]
                 then
 		    #node must not mining. Stop mining
@@ -110,7 +110,7 @@ function start() {
                 fi
             else
 		#log not requestd. Redirect output to /dev/null
-                geth --datadir $PWD/$node_name --identity $node_name --mine --minerthreads=1 --nodiscover --maxpeers 100 --networkid 170788 --rpcapi admin,eth,net,web3,miner --rpc --rpccorsdomain "*" --rpcport $rpcport --port $port --nodekey $PWD/$node_name/bootkey_$node_name.key > /dev/null 2>&1 &
+                geth --datadir $PWD/$node_name --identity $node_name --mine --minerthreads=1 --nodiscover --maxpeers 100 --networkid 170788 --rpcapi personal,admin,eth,net,web3,miner --rpc --rpccorsdomain "*" --rpcport $rpcport --port $port --nodekey $PWD/$node_name/bootkey_$node_name.key > /dev/null 2>&1 &
 		if [ "$miner" != "1" ]
                 then
 		    #node must not mining. Stop mining
