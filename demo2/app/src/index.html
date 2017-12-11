@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UT</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <input type="text" size="10" name="mise" id="miseamount" value="0" />
+        <label for="miseamount">Mise</label>
+      </div>
+      <div>
+        <input type="checkbox" id="betSingle" name="betTypeSingle" value="betsingle">
+        <label for="betSingle">Bet Single</label>
+      </div>
+      <div>
+        <input type="checkbox" id="betEven" name="betTypeEven" value="beteven">
+        <label for="betEven">Bet Even</label>
+      </div>
+      <div>
+        <input type="checkbox" id="betOdd" name="betTypeOdd" value="betodd">
+        <label for="betOdd">Bet Odd</label>
+      </div>
+    </form>
+
+    <div>
+      <button type="button" onclick="submit();">Miser</button>
+    </div>
+
+    <div>
+      <input type="text" size="10" name="tostore" id="storeValue" value="0" />
+    </div>
+    
+    <div>
+      <button type="button" onclick="store();">Set</button>
+    </div>
+
+    <div>
+      <input type="text" size="10" name="storage" id="storedValue" value="0" />
+    </div>
+    
+    <div>
+      <input type="text" size="20" name="Balance" id="balance" value="0" />
+      <button type="button" onclick="getBalance();">Get Balance</button>
+    </div>
+
+    <div>
+      <input type="text" size="10" name="Block" id="blockNb" value="0" />
+      <button type="button" onclick="getBlock();">Get Block</button>
+    </div>
+
+  </body>
+
+  <script src="web3.min.js"></script>
+  <script src="ut.js"></script>
+
+</html>
