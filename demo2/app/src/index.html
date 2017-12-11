@@ -1,57 +1,93 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>UT</title>
+    <!-- En-tête de la page -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+    <title>Démonstration projet blockchain : Smart-Roulette</title>
   </head>
+
   <body>
+    <!-- Corps de la page -->
+    <h1>SMART-ROULETTE</h1>
+
+      <p><img src="img/smartroulette-logo.png" alt="Smart-Roulette" /></p>
+    <p>
     <form>
       <div>
-        <input type="text" size="10" name="mise" id="miseamount" value="0" />
         <label for="miseamount">Mise</label>
+        <input type="text" size="10" name="mise" id="miseamount" value="0" />
+        <label for="balance">ETH</label>
       </div>
-      <div>
-        <input type="checkbox" id="betSingle" name="betTypeSingle" value="betsingle">
-        <label for="betSingle">Bet Single</label>
-      </div>
-      <div>
-        <input type="checkbox" id="betEven" name="betTypeEven" value="beteven">
-        <label for="betEven">Bet Even</label>
-      </div>
-      <div>
-        <input type="checkbox" id="betOdd" name="betTypeOdd" value="betodd">
-        <label for="betOdd">Bet Odd</label>
-      </div>
-    </form>
-
-    <div>
+          <div>
       <button type="button" onclick="submit();">Miser</button>
     </div>
 
-    <div>
-      <input type="text" size="10" name="tostore" id="storeValue" value="0" />
-    </div>
-    
-    <div>
-      <button type="button" onclick="store();">Set</button>
-    </div>
+      <!-- Liste des paris -->
+      <ul>
+        <li>
+          <div class="choix">
+            <label for="betSingle">Bet Single</label>
+            <input type="radiobutton" id="betSingle" name="betTypeSingle" value="betsingle">
+          </div>
+        </li>
 
-    <div>
-      <input type="text" size="10" name="storage" id="storedValue" value="0" />
-    </div>
+        <li>
+          <div class="choix">
+            <label for="betEven">Bet Even</label>        
+            <input type="radiobutton" id="betEven" name="betTypeEven" value="beteven">
+          </div>
+        </li>
+
+        <li> 
+          <div class="choix">
+            <label for="betOdd">Bet Odd</label>        
+            <input type="radiobutton" id="betOdd" name="betTypeOdd" value="betodd">
+          </div>
+        </li>
+      </ul>
+    </form>
+  </p>
+
+
+<p>
+    <a href="folder/toto.txt">Télécharger le fichier</a>
+</p>
+
+
     
     <div>
-      <input type="text" size="20" name="Balance" id="balance" value="0" />
       <button type="button" onclick="getBalance();">Get Balance</button>
+      <input type="text" size="20" name="Balance" id="balance" value="0" />
+      <label for="balance">ETH</label>
     </div>
 
     <div>
-      <input type="text" size="10" name="Block" id="blockNb" value="0" />
       <button type="button" onclick="getBlock();">Get Block</button>
+      <input type="text" size="10" name="Block" id="blockNb" value="0" />
+      <label for="balance">ETH</label>
+
     </div>
+
+<br><br><br><br><br>
+
+    <p>
+      <div>
+        <input type="text" size="10" name="tostore" id="storeValue" value="0" />
+      </div>
+      
+      <div>
+        <button type="button" onclick="store();">Set</button>
+      </div>
+      <div>
+        <input type="text" size="10" name="storage" id="storedValue" value="0" />
+      </div>
+    </p>
 
   </body>
 
-  <script src="web3.min.js"></script>
-  <script src="ut.js"></script>
+<!--   <script src="web3.min.js"></script>
+  <script src="main.js"></script> -->
 
 </html>

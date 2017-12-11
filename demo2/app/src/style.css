@@ -1,0 +1,23 @@
+/*
+style.css
+---------
+ 
+*/
+h1
+{
+    color: purple;/* titre en violet */
+    font-size: 1.5em;
+    font-family: Arial;
+}
+
+form,button
+{
+    color: blue;
+    font-size: 0.8em;
+}
+
+.choix
+{
+    color: green;
+    font-size: 1.3em;
+}
