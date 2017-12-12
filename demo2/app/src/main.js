@@ -9,21 +9,16 @@ var version = web3.version.api;
 console.log(version); // "0.2.0"
 
 var betContractABI = [ { "constant": false, "inputs": [], "name": "launch", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "bets", "outputs": [ { "name": "betType", "type": "uint8", "value": "0" }, { "name": "player", "type": "address", "value": "0x" }, { "name": "number", "type": "uint256", "value": "0" }, { "name": "value", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "kill", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "nextRoundTimestamp", "outputs": [ { "name": "", "type": "uint256", "value": "1511510163" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "number", "type": "uint256" } ], "name": "betSingle", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "lastRoundTimestamp", "outputs": [ { "name": "", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "_interval", "outputs": [ { "name": "", "type": "uint256", "value": "5" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "betEven", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "_creator", "outputs": [ { "name": "", "type": "address", "value": "0xf02e4f5e33f06422c361bc1e09765a0190d1a034" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getBetsCountAndValue", "outputs": [ { "name": "", "type": "uint256", "value": "0" }, { "name": "", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "betOdd", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "inputs": [ { "name": "interval", "type": "uint256", "index": 0, "typeShort": "uint", "bits": "256", "displayName": "interval", "template": "elements_input_uint", "value": "5" } ], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "number", "type": "uint256" }, { "indexed": false, "name": "nextRoundTimestampold", "type": "uint256" } ], "name": "Finished", "type": "event" } ];
-var betContractAddress = '0x6B46e3f57C067c7cd7090f54784B5543121f4D6a';
+var betContractAddress = '0x91811EFb1700ba86539E53e4509898d7517653d4';
 var betContract = web3.eth.contract(betContractABI).at(betContractAddress);
-
-var stoContractABI = [ { "constant": true, "inputs": [], "name": "storedData", "outputs": [ { "name": "", "type": "uint256", "value": "127" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "x", "type": "uint256" } ], "name": "set", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "get", "outputs": [ { "name": "retVal", "type": "uint256", "value": "127" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [ { "name": "initialValue", "type": "uint256", "index": 0, "typeShort": "uint", "bits": "256", "displayName": "initial Value", "template": "elements_input_uint", "value": "127" } ], "payable": false, "stateMutability": "nonpayable", "type": "constructor" } ];
-var stoContractAddress = '0x145B0227375d775A30379338D97d810379d83f7b';
-var stoContract = web3.eth.contract(stoContractABI).at(stoContractAddress);
 
 var account = web3.eth.accounts[0];
 console.log(account);
-web3.personal.unlockAccount(account,"node00");
+web3.personal.unlockAccount(account,"secret");
+document.getElementById("account").value = account;
 
-var result = stoContract.get();
-console.log(result);
-result = stoContract.set(8888);
-console.log(result);
+var initBalance = web3.eth.getBalance(account);
+document.getElementById("balance").value = web3.fromWei(initBalance,"ether");
 
 function getBalance() {
     if(!web3.isConnected()) {

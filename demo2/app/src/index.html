@@ -50,44 +50,20 @@
     </form>
   </p>
 
-
-<p>
-    <a href="folder/toto.txt">Télécharger le fichier</a>
-</p>
-
-
-    
-    <div>
-      <button type="button" onclick="getBalance();">Get Balance</button>
-      <input type="text" size="20" name="Balance" id="balance" value="0" />
-      <label for="balance">ETH</label>
-    </div>
-
-    <div>
-      <button type="button" onclick="getBlock();">Get Block</button>
-      <input type="text" size="10" name="Block" id="blockNb" value="0" />
-      <label for="balance">ETH</label>
-
-    </div>
-
-<br><br><br><br><br>
-
-    <p>
-      <div>
-        <input type="text" size="10" name="tostore" id="storeValue" value="0" />
-      </div>
-      
-      <div>
-        <button type="button" onclick="store();">Set</button>
-      </div>
-      <div>
-        <input type="text" size="10" name="storage" id="storedValue" value="0" />
-      </div>
-    </p>
+    <form>
+      <legend><strong>Account</strong></legend>
+      <p>Address: <output name="Address" id="account" >0</output></p>
+      <p>Balance: <output name="Balance" id="balance" >0</output> ETH</p>
+    </form>
+    <form>
+      <legend><strong>Contract</strong></legend>
+      <p>Address: <output name="contractAddress" id="c_account" >0</output></p>
+      <p>Balance: <output name="contractBalance" id="c_balance" >0</output> ETH</p>
+    </form>
 
   </body>
 
-<!--   <script src="web3.min.js"></script>
-  <script src="main.js"></script> -->
+  <script src="web3.min.js"></script>
+  <script src="main.js"></script>
 
 </html>
