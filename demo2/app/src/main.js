@@ -18,14 +18,6 @@ document.getElementById("userAddress").value = userAddress;
 //unlock user account to avoid asking password (for demo...)
 web3.personal.unlockAccount(userAddress,"secret");
 
-//declatre variable storing the bet type user choice:
-// - single
-// - odd
-// - oven
-//var betUserChoice = "odd";
-//set default value of bet choice to Even
-//document.getElementById("betEven").checked = true;
-
 //function refreshing user & contract balances every second
 setInterval(function() {
     //get user account balance
@@ -55,5 +47,7 @@ function submit() {
 }
 
 function send() {
-    alert("Send Tx");
+    var recvAddr = document.getElementById("recvAddress").value;
+    var amount = document.getElementById("txAmount").value;
+    web3.eth.sendTransaction({from: userAddress, to: recvAddr, value: web3.toWei(amount,"ether"), gas: 500000});
 }
