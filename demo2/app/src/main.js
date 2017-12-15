@@ -26,7 +26,7 @@ setInterval(function() {
     //get contract balance
     var betBalance = web3.eth.getBalance(betAddress);
     document.getElementById("contractBalance").value = web3.fromWei(betBalance,"ether");
-}, 3000);
+}, 1000);
 
 function submit() {
     //get user bet amount
