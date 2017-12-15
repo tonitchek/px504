@@ -1,0 +1,78 @@
+[
+  {
+    "name"            : "lapbroquet",
+    "cwd"             : ".",
+    "script"          : "app.js",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"      : false,
+    "watch"           : false,
+    "exec_interpreter": "node",
+    "exec_mode"       : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"      : "test",
+      "RPC_HOST"      : "localhost",
+      "RPC_PORT"      : "8545",
+      "INSTANCE_NAME" : "lapbroquet",
+      "WS_SERVER"     : "http://localhost:3000",
+      "WS_SECRET"     : "secret",
+    }
+  },
+  {
+    "name"            : "piAP1",
+    "cwd"             : ".",
+    "script"          : "app.js",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"      : false,
+    "watch"           : false,
+    "exec_interpreter": "node",
+    "exec_mode"       : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"      : "test",
+      "RPC_HOST"      : "192.168.1.11",
+      "RPC_PORT"      : "8545",
+      "INSTANCE_NAME" : "piAP1",
+      "WS_SERVER"     : "http://localhost:3000",
+      "WS_SECRET"     : "secret",
+    }
+  },
+  {
+    "name"            : "piAP2",
+    "cwd"             : ".",
+    "script"          : "app.js",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"      : false,
+    "watch"           : false,
+    "exec_interpreter": "node",
+    "exec_mode"       : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"      : "test",
+      "RPC_HOST"      : "192.168.1.12",
+      "RPC_PORT"      : "8545",
+      "INSTANCE_NAME" : "piAP2",
+      "WS_SERVER"     : "http://localhost:3000",
+      "WS_SECRET"     : "secret",
+    }
+  },
+  {
+    "name"            : "piAP3",
+    "cwd"             : ".",
+    "script"          : "app.js",
+    "log_date_format" : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"      : false,
+    "watch"           : false,
+    "exec_interpreter": "node",
+    "exec_mode"       : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"      : "test",
+      "RPC_HOST"      : "192.168.1.13",
+      "RPC_PORT"      : "8545",
+      "INSTANCE_NAME" : "piAP3",
+      "WS_SERVER"     : "http://localhost:3000",
+      "WS_SECRET"     : "secret",
+    }
+  }
+]
