@@ -31,8 +31,8 @@ then
     fi
 fi
 
-APP_NAME=PX504_BLOCKCHAIN_APP
 cd $PLATFORM
+APP_NAME=PX504_BLOCKCHAIN_APP_$PLATFORM
 
 #remove current package
 rm -rf $APP_NAME $APP_NAME.zip

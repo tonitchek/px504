@@ -2,6 +2,7 @@ pi_img/*.img
 node*
 data/
 *.zip
-app/packaging/win64/PX504_BLOCKCHAIN_APP/*
-app/packaging/lin64/PX504_BLOCKCHAIN_APP/*
+app/packaging/win64/PX504_BLOCKCHAIN_APP*
+app/packaging/lin64/PX504_BLOCKCHAIN_APP*
+app/packaging/macos/PX504_BLOCKCHAIN_APP*
 *.gz
