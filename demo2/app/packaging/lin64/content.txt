@@ -1,14 +1,5 @@
-geth             : Ethereum Go client.
-	         
-setup.sh         : application launching script.
-
-genesis.json     : genesis block for private ethereum blockchain
-                   initialization.
-
-password         : contain default password for account (mdp: secret)
-
-static-nodes.json: bootnodes configuration. It contains the enode URL of
-                   main PC (with DHCP server) and the 3 Raspberry PI.
+app/index.html   : Main user interface interacting with blockchain through
+                   Geth client.
 
 app/main.js      : JavaScript program linking Geth node to HTML user interface.
                    It is connected to the Geth node through the light HTTP
@@ -16,5 +7,16 @@ app/main.js      : JavaScript program linking Geth node to HTML user interface.
 
 app/web3.min.js  : JavaScript library for Geth client interface.
 
-app/index.html   : Main user interface interacting with blockchain through
-                   Geth client.
+content.txt      : this file.
+
+genesis.json     : genesis block for private ethereum blockchain
+                   initialization.
+
+geth             : Ethereum Go client.
+	         
+password         : contain default password for account.
+
+setup.sh         : application launching script.
+
+static-nodes.json: bootnodes configuration. It contains the enode URL of
+                   main PC (with DHCP server) and the 3 Raspberry PI.
