@@ -42,7 +42,8 @@ mkdir $APP_NAME
 mkdir $APP_NAME/app
 cp -R ../../src/* $APP_NAME/app
 cp content.txt $APP_NAME
-cp ../*.json  $APP_NAME
+cp ../static-nodes.json $APP_NAME
+cp ../../../deployment/genesis.json $APP_NAME
 cp geth* $APP_NAME
 cp ../password $APP_NAME
 cp setup* $APP_NAME
