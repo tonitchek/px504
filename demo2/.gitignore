@@ -3,5 +3,5 @@ node*
 data/
 *.zip
 app/packaging/win64/PX504_BLOCKCHAIN_APP/*
+app/packaging/lin64/PX504_BLOCKCHAIN_APP/*
 *.gz
-app/packaging/todo
