@@ -4,90 +4,51 @@
   <head>
     <!-- En-tête de la page -->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" />
     <title>Démonstration projet blockchain : Smart-Roulette</title>
   </head>
 
   <body>
+
     <!-- Corps de la page -->
     <h1>SMART-ROULETTE</h1>
 
-      <p><img src="img/smartroulette-logo.png" alt="Smart-Roulette" /></p>
-    <p>
+    <p><img src="img/smartroulette-logo.png" alt="Smart-Roulette" /></p>
+
     <form>
-      <div>
-        <label for="miseamount">Mise</label>
-        <input type="text" size="10" name="mise" id="miseamount" value="0" />
-        <label for="balance">ETH</label>
-      </div>
-          <div>
-      <button type="button" onclick="submit();">Miser</button>
-    </div>
-
-      <!-- Liste des paris -->
-      <ul>
-        <li>
-          <div class="choix">
-            <label for="betSingle">Bet Single</label>
-            <input type="radiobutton" id="betSingle" name="betTypeSingle" value="betsingle">
-          </div>
-        </li>
-
-        <li>
-          <div class="choix">
-            <label for="betEven">Bet Even</label>        
-            <input type="radiobutton" id="betEven" name="betTypeEven" value="beteven">
-          </div>
-        </li>
-
-        <li> 
-          <div class="choix">
-            <label for="betOdd">Bet Odd</label>        
-            <input type="radiobutton" id="betOdd" name="betTypeOdd" value="betodd">
-          </div>
-        </li>
-      </ul>
+      <legend><strong>Account</strong></legend>
+      <p>Address: <output name="Address" id="userAddress" >0</output></p>
+      <p>Balance: <output name="Balance" id="userBalance" >0</output> ETH</p>
     </form>
-  </p>
+    <form>
+      <legend><strong>Contract</strong></legend>
+      <p>Address: <output name="contractAddress" id="contractAddress" >0</output></p>
+      <p>Balance: <output name="contractBalance" id="contractBalance" >0</output> ETH</p>
+    </form>
 
+    <form>
+      <fieldset>
+	<legend>Select Bet type</legend>
+        <p>
+          <label><input type="radio" name="betChoice" id="betSingle" value="single" /> Single (x36)</label>
+          <input type="number" id="userBetSingleNumber" min="0" max="37" step="1" value="0"> <br>
+          <label><input type="radio" name="betChoice" id="betOdd" value="odd" /> Odd (x2)</label> <br>
+          <label><input type="radio" name="betChoice" id="betEven" value="even" checked /> Even (x2)</label> <br>
+        </p>
+      </fieldset>
+    </form>
+    <label>Mise : </label><input type="number" name="mise" id="miseAmount" step="0.00001" value="0" /><label>ETH</label>
+    <p><button type="button" onclick="submit();">Bet</button></p>
 
-<p>
-    <a href="folder/toto.txt">Télécharger le fichier</a>
-</p>
-
-
-    
-    <div>
-      <button type="button" onclick="getBalance();">Get Balance</button>
-      <input type="text" size="20" name="Balance" id="balance" value="0" />
-      <label for="balance">ETH</label>
-    </div>
-
-    <div>
-      <button type="button" onclick="getBlock();">Get Block</button>
-      <input type="text" size="10" name="Block" id="blockNb" value="0" />
-      <label for="balance">ETH</label>
-
-    </div>
-
-<br><br><br><br><br>
-
-    <p>
-      <div>
-        <input type="text" size="10" name="tostore" id="storeValue" value="0" />
-      </div>
-      
-      <div>
-        <button type="button" onclick="store();">Set</button>
-      </div>
-      <div>
-        <input type="text" size="10" name="storage" id="storedValue" value="0" />
-      </div>
-    </p>
+    <fieldset>
+      <legend>Transaction</legend>
+      <p>Receiver address: <input type="text" size="42" name="receiverAddress" id="recvAddress" value="0x0000000000000000000000000000000000000000"></input></p>
+      <label>Mise : </label><input type="number" name="tx" id="txAmount" step="0.00001" value="0" /><label>ETH</label>      
+      <p><button type="button" onclick="send();">Send</button></p>
+    </fieldset>
 
   </body>
 
-<!--   <script src="web3.min.js"></script>
-  <script src="main.js"></script> -->
+  <script src="web3.min.js"></script>
+  <script src="main.js"></script>
 
 </html>
