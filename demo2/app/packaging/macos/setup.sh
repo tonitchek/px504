@@ -20,6 +20,9 @@ echo "---------"
 
 # open index.html user interface
 open app/index.html
+open 192.168.1.1:8888
+open 192.168.1.1:8000
+open 192.168.1.1:3000
 
 # start node
 ./geth --datadir $DATADIR --identity $HOSTNAME --mine --minerthreads=1 --maxpeers 100 --networkid 170788 --rpcapi "db,personal,admin,eth,net,web3,miner" --rpc --rpccorsdomain "*"

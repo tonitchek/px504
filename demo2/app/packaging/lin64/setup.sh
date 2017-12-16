@@ -38,6 +38,9 @@ then
 else
     # firefox exists and can be run
     firefox --new-tab app/index.html &> /dev/null &
+    firefox --new-tab 192.168.1.1:8888 &> /dev/null &
+    firefox --new-tab 192.168.1.1:8000 &> /dev/null &
+    firefox --new-tab 192.168.1.1:3000 &> /dev/null &
     echo "---------"
     echo "App started in a new Firefox tab"
     echo "---------"
