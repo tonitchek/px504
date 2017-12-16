@@ -4,7 +4,8 @@ var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 //variable storing the Bet contract bytecode and ABI
 var betBytecode;
-var betAbi;
+//read contract ABI
+var betAbi = JSON.parse(ABI);
 //variable storing Bet contract address
 var betAddress;
 
@@ -31,21 +32,6 @@ function readContractBytecode(evt) {
 	var r = new FileReader();
 	r.onload = function(e) {
 	    betBytecode = '0x'+e.target.result;
-	}
-	r.readAsText(f);
-    } else {
-	alert("!!!Failed to load contract source!!!");
-    }
-}
-
-document.getElementById('contractABIInput').addEventListener('change', readContractABI, false);
-function readContractABI(evt) {
-    //Retrieve the first (and only!) File from the FileList object
-    var f = evt.target.files[0];
-    if (f) {
-	var r = new FileReader();
-	r.onload = function(e) {
-	    betAbi = JSON.parse(e.target.result);
 	}
 	r.readAsText(f);
     } else {
