@@ -1,0 +1,131 @@
+---
+version: "2"
+
+services:
+
+  eth1:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9091:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth1
+
+  eth2:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9092:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth2
+  eth3:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9093:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth3
+
+  eth4:
+      image: yobi/ubuntu_novnc_base:v0.1
+      ports:
+        - "9094:6080" #novnc port
+      volumes:
+        - /Users/yo/Documents/:/home/ubuntu/import
+      environment:
+        SUDO: "Yes"
+        PASSWORD: PASS
+      networks:
+        main:
+          aliases:
+            - eth4
+
+  eth5:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9095:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth5
+
+  eth6:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9096:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth6
+
+  eth7:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9097:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth7
+
+  eth8:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9098:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth8
+
+  eth9:
+    image: yobi/ubuntu_novnc_base:v0.1
+    ports:
+      - "9099:6080" #novnc port
+    volumes:
+      - /Users/yo/Documents/:/home/ubuntu/import
+    environment:
+      SUDO: "Yes"
+      PASSWORD: PASS
+    networks:
+      main:
+        aliases:
+          - eth9
+networks:
+  main:

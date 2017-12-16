@@ -1,0 +1,36 @@
+=============== Dec 15, 2017 (CET) ===============
+07:36:25.952806 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:36:25.953783 db@open opening
+07:36:25.954929 version@stat F·[] S·0B[] Sc·[]
+07:36:25.955354 db@janitor F·2 G·0
+07:36:25.955400 db@open done T·1.589812ms
+=============== Dec 15, 2017 (CET) ===============
+07:36:26.995098 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:36:26.995273 version@stat F·[] S·0B[] Sc·[]
+07:36:26.995295 db@open opening
+07:36:26.995353 journal@recovery F·1
+07:36:26.996197 journal@recovery recovering @1
+07:36:26.996986 memdb@flush created L0@2 N·9 S·555B "H\xb0R..\x15S\xc1,v3":"r\x00\x00..\x15S\xc1,v5"
+07:36:26.997803 version@stat F·[1] S·555B[555B] Sc·[0.25]
+07:36:26.999056 db@janitor F·3 G·0
+07:36:26.999092 db@open done T·3.775786ms
+=============== Dec 15, 2017 (CET) ===============
+07:37:08.441161 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:37:08.441350 version@stat F·[1] S·555B[555B] Sc·[0.25]
+07:37:08.441375 db@open opening
+07:37:08.441440 journal@recovery F·1
+07:37:08.441849 journal@recovery recovering @3
+07:37:08.447786 memdb@flush created L0@5 N·3 S·290B "Blo..ion,v12":"dbU..ata,v11"
+07:37:08.448537 version@stat F·[2] S·845B[845B] Sc·[0.50]
+07:37:08.450120 db@janitor F·4 G·0
+07:37:08.450178 db@open done T·8.772216ms
+=============== Dec 15, 2017 (CET) ===============
+07:37:09.515631 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:37:09.515890 version@stat F·[2] S·845B[845B] Sc·[0.50]
+07:37:09.515914 db@open opening
+07:37:09.515983 journal@recovery F·1
+07:37:09.516837 journal@recovery recovering @6
+07:37:09.519175 memdb@flush created L0@8 N·1 S·306B "eth..\x15S\xc1,v15":"eth..\x15S\xc1,v15"
+07:37:09.520025 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
+07:37:09.521154 db@janitor F·5 G·0
+07:37:09.521191 db@open done T·5.252524ms
