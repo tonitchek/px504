@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- En-tête de la page -->
+    <meta charset="utf-8">
+    <title>BET Deployment</title>
+  </head>
+
+  <body>
+
+    <!-- Corps de la page -->
+    <h1>BET DEPLOYMENT</h1>
+
+    <p>Contract Bytecode <input type="file" id="contractBytecodeInput"></p>
+    <p>Contract ABI <input type="file" id="contractABIInput"></p>
+    
+    <p><button type="button" onclick="deploy();">Deploy Bet</button></p>
+
+    <form>
+      <legend><strong>Bet Contract</strong></legend>
+      <p>Address: <input name="contractAddress" id="contractAddress" size="42" </input><button type="button" onclick="updateAddr();">Update</button></p>
+      <p>Balance: <output name="contractBalance" id="contractBalance" >0</output> ETH</p>
+    </form>
+
+    <p><button type="button" onclick="launch();">Launch Bet</button></p>
+    <p><button type="button" onclick="kill();">Destroy Bet</button></p>
+
+  </body>
+
+  <script src="../app/src/web3.min.js"></script>
+  <script src="contract_interface.js"></script>
+
+</html>
