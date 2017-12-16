@@ -5,7 +5,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 //read contract ABI
 var betABI = JSON.parse(ABI);
 //set contract address deployed on the blockchain in order to interact with it
-var betAddress = '0x91811EFb1700ba86539E53e4509898d7517653d4';
+var betAddress = '0x670e5f29f41d7e743f7b2ca2decf00f01d703626';
 //set contract address in HTML output text
 document.getElementById("contractAddress").value = betAddress;
 //get contract instance

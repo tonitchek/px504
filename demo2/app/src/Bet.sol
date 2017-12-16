@@ -2,11 +2,7 @@ pragma solidity ^0.4.11;
 
 contract Roulette {
 
-    uint public lastRoundTimestamp;
-    uint public nextRoundTimestamp;
-
     address public _creator;
-    uint public _interval;
 
     enum BetType { Single, Odd, Even }
 
@@ -18,6 +14,7 @@ contract Roulette {
     }
 
     Bet[] public bets;
+    uint initialFund;
 
     function getBetsCountAndValue() public constant returns(uint, uint) {
         uint value = 0;
@@ -27,10 +24,8 @@ contract Roulette {
         return (bets.length, value);
     }
 
-    event Finished(uint number, uint nextRoundTimestampold);
-
     modifier transactionMustContainEther() {
-        //require(msg.value > 0);
+        require(msg.value > 0);
         _;
     }
 
@@ -40,24 +35,26 @@ contract Roulette {
             necessaryBalance += getPayoutForType(bets[i].betType) * bets[i].value;
         }
         necessaryBalance += getPayoutForType(betType) * msg.value;
-        //require(necessaryBalance <= this.balance);
+        require(necessaryBalance <= this.balance);
         _;
     }
 
     function getPayoutForType(BetType betType) private constant returns(uint) {
-        if (betType == BetType.Single) return 35;
+        if (betType == BetType.Single) return 10;
         if (betType == BetType.Even || betType == BetType.Odd) return 2;
         return 0;
     }
 
-    function Roulette(uint interval) {
-        _interval = interval;
+    function Roulette() public {
         _creator = msg.sender;
-        nextRoundTimestamp = now + _interval;
     }
 
+    function initBank() public payable transactionMustContainEther() {
+        initialFund = msg.value;
+    }
+    
     function betSingle(uint number) public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Single) {
-        //require(number < 37);
+        require(number < 37);
         bets.push(Bet({
             betType: BetType.Single,
             player: msg.sender,
@@ -85,7 +82,7 @@ contract Roulette {
     }
 
     function launch() public {
-        //require(now > nextRoundTimestamp);
+        require(msg.sender == _creator);
 
         uint number = uint(block.blockhash(block.number - 1)) % 37;
 
@@ -110,13 +107,7 @@ contract Roulette {
             }
         }
 
-        uint thisRoundTimestamp = nextRoundTimestamp;
-        nextRoundTimestamp = thisRoundTimestamp + _interval;
-        lastRoundTimestamp = thisRoundTimestamp;
-
         bets.length = 0;
-
-        Finished(number, nextRoundTimestamp);
     }
 
     function kill() public {
