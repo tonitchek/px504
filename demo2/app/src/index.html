@@ -1,55 +1,121 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+  PROJECT PX504 by ESISAR - Grenoble INP STUDENT
+  Antonin BROQUET
+  Michael PERRIN
+  Yoann BILIATO
+  Lucie MERCENNE
 
+  DESIGN FROM:
+  Identity by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
   <head>
-    <!-- En-tête de la page -->
-    <meta charset="utf-8">
     <title>Démonstration projet blockchain : Smart-Roulette</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
   </head>
 
-  <body>
+  <body class="is-loading">
 
-    <!-- Corps de la page -->
-    <h1>SMART-ROULETTE</h1>
+    <!-- Wrapper -->
+      <div id="wrapper">
 
-    <p><img src="img/smartroulette-logo.png" alt="Smart-Roulette" /></p>
+        <!-- Main -->
+          <section id="main">
+            <header>
+              <span class="avatar"><img src="images/smartroulette-logo.png" alt="" /></span>
+              <h1>SMART-ROULETTE</h1>
+              <p>Démonstration Blockchain et Smart-contract Ethereum</p>
+            </header>
 
-    <form>
-      <legend><strong>Account</strong></legend>
-      <p>Address: <output name="Address" id="userAddress" >0</output></p>
-      <p>Balance: <output name="Balance" id="userBalance" >0</output> ETH</p>
-    </form>
-    <form>
-      <legend><strong>Contract</strong></legend>
-      <p>Address: <input name="contractAddress" id="contractAddress" size="42" ></p>
-      <p>Balance: <output name="contractBalance" id="contractBalance" >0</output> ETH</p>
-    </form>
+            <hr />
 
-    <form>
-      <fieldset>
-	<legend>Select Bet type</legend>
-        <p>
-          <label><input type="radio" name="betChoice" id="betSingle" value="single" /> Single (x36)</label>
-          <input type="number" id="userBetSingleNumber" min="0" max="37" step="1" value="0"> <br>
-          <label><input type="radio" name="betChoice" id="betOdd" value="odd" /> Odd (x2)</label> <br>
-          <label><input type="radio" name="betChoice" id="betEven" value="even" checked /> Even (x2)</label> <br>
-        </p>
-      </fieldset>
-    </form>
-    <label>Mise : </label><input type="number" name="mise" id="miseAmount" step="0.00001" value="0" /><label>ETH</label>
-    <p><button type="button" onclick="submit();">Bet</button></p>
+            <form method="post" action="#">
+              <div class="field"><h2><em>Account</em></h2></div>
+              <div class="field" align="left">
+                <p>Address: <output name="Address" id="userAddress" >0</output></p>
+                <p>Balance: <output name="Balance" id="userBalance" >0</output> ETH</p>
+              </div>
+            </form>
 
-    <fieldset>
-      <legend>Transaction</legend>
-      <p>Receiver address: <input type="text" size="42" name="receiverAddress" id="recvAddress" value="0x0000000000000000000000000000000000000000"></input></p>
-      <label>Amount : </label><input type="number" name="tx" id="txAmount" step="0.00001" value="0" /><label>ETH</label>      
-      <p><button type="button" onclick="send();">Send</button></p>
-    </fieldset>
+            <hr />
+            
+            <form method="post" action="#">
+              <div class="field"><h2><em>Contract</em></h2></div>
+              <div class="field" align="left">
+                <p>Address: <input name="contractAddress" id="contractAddress" size="42"></p>
+                <p>Balance: <output name="contractBalance" id="contractBalance" >0</output> ETH</p>
+              </div>
+            </form>
+
+            <hr />
+
+            <form method="post" action="#">
+             <div class="field">
+                <div class="field"><h2><em>Select Bet type</em></h2></div><br>
+                <div class="field" align="left">
+                  <input type="radio" name="betChoice" id="betSingle" value="single" /> <label for="betSingle">Single (x10)</label>
+                  <input type="number" id="userBetSingleNumber" min="1" max="36" step="1" value="1"> <br>
+                  <input type="radio" name="betChoice" id="betOdd" value="odd" /><label  for="betOdd"> Odd (x2)</label> <br>
+                  <input type="radio" name="betChoice" id="betEven" value="even" checked /> <label for="betEven">Even (x2)</label> <br>
+                </div>
+                <br>
+                <div class="field" align="center">
+                  <label>Bet : <input type="number" name="mise" id="miseAmount" step="0.00001" value="0" /> ETH</label>
+                </div>
+                <p><button type="button" onclick="submit();">Bet</button></p>
+              </div>
+            </form>
+
+            <hr />
+
+            <form method="post" action="#">
+              <div class="field">
+                <div class="field"><h2><em>Transaction</em></h2></div><br>
+                <div class="col" align="left">
+                  <p>Receiver address: <input size="42" name="receiverAddress" id="recvAddress" value="0x0000000000000000000000000000000000000000"></p>
+                </div>
+                <div class="field" align="center">
+                  <label>Amount : <input type="number" name="tx" id="txAmount" min="0" max="10" step="0.00001" value="0" /> ETH</label> 
+                </div>     
+                <p><button type="button" onclick="send();">Send</button></p>
+              </div>
+            </form>
+          </section>
+
+          <!-- Footer -->
+          <footer id="footer">
+            <ul class="copyright">
+              <li>&copy; Antonin BROQUET | Michael PERRIN | Yoann BILIATO | Lucie MERCENNE </li>
+              <li>PROJET PX504: <a href="http://esisar.grenoble-inp.fr/">ESISAR</a></li>
+              <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+          </footer>
+      </div>
+
+      <!-- Scripts -->
+      <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+      <script>
+        if ('addEventListener' in window) {
+          window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+          document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+        }
+      </script>
 
   </body>
 
-  <script src="web3.min.js"></script>
-  <script type="text/javascript" src="bet_contract.json"></script>
-  <script src="main.js"></script>
+    <script src="web3.min.js"></script>
+    <script type="text/javascript" src="bet_contract.json"></script>
+    <script src="main.js"></script>
+    <script src="theme.js"></script>
 
 </html>
