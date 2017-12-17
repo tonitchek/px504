@@ -21,7 +21,6 @@ echo "---------"
 
 :: open index.html user interface
 start app/index.html
-start 192.168.1.1:8888
 start 192.168.1.1:8000
 start 192.168.1.1:3000
 

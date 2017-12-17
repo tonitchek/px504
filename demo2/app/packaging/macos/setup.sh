@@ -20,7 +20,6 @@ echo "---------"
 
 # open index.html user interface
 open app/index.html
-open 192.168.1.1:8888
 open 192.168.1.1:8000
 open 192.168.1.1:3000
 
