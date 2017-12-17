@@ -2,12 +2,12 @@ var Web3 = require('web3');
 // create an instance of web3 using the HTTP provider.
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-//read contract ABI
-var betABI = JSON.parse(ABI);
+//parse contract JSON file
+var contractJSON = JSON.parse(CONTRACT);
+//variable storing the Bet contract ABI
+var betAbi = contractJSON.abi;
 //set contract address deployed on the blockchain in order to interact with it
 var betAddress;
-//get contract instance
-var betContract = web3.eth.contract(betABI).at(betAddress);
 
 //get user account address
 var userAddress = web3.eth.accounts[0];
@@ -29,20 +29,23 @@ setInterval(function() {
 }, 1000);
 
 function submit() {
-    //get user bet amount
-    var amount = document.getElementById("miseAmount").value;
-    if(document.getElementById("betSingle").checked == true) {
-        //choice is single
-	var userNumber = document.getElementById("userBetSingleNumber").value;
-	betContract.betSingle(userNumber,{from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
-    }
-    else if(document.getElementById("betOdd").checked == true) {
-        //choice is odd
-	betContract.betOdd({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
-    }
-    else {
-        //choice is even
-	betContract.betEven({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+    if(betAddress) {
+	var betContract = web3.eth.contract(betAbi).at(betAddress);
+        //get user bet amount
+        var amount = document.getElementById("miseAmount").value;
+        if(document.getElementById("betSingle").checked == true) {
+            //choice is single
+        	var userNumber = document.getElementById("userBetSingleNumber").value;
+        	betContract.betSingle(userNumber,{from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+        }
+        else if(document.getElementById("betOdd").checked == true) {
+            //choice is odd
+        	betContract.betOdd({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+        }
+        else {
+            //choice is even
+        	betContract.betEven({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+        }
     }
 }
 

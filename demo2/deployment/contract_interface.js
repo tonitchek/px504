@@ -2,10 +2,12 @@ var Web3 = require('web3');
 // create an instance of web3 using the HTTP provider.
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-//variable storing the Bet contract bytecode and ABI
-var betBytecode;
-//read contract ABI
-var betAbi = JSON.parse(ABI);
+//parse contract JSON file
+var contractJSON = JSON.parse(CONTRACT);
+//variable storing the Bet contract bytecode
+var betBytecode = contractJSON.bin;
+//variable storing the Bet contract ABI
+var betAbi = contractJSON.abi;
 //variable storing Bet contract address
 var betAddress;
 
@@ -24,31 +26,12 @@ setInterval(function() {
     }
 }, 1000);
 
-document.getElementById('contractBytecodeInput').addEventListener('change', readContractBytecode, false);
-function readContractBytecode(evt) {
-    //Retrieve the first (and only!) File from the FileList object
-    var f = evt.target.files[0];
-    if (f) {
-	var r = new FileReader();
-	r.onload = function(e) {
-	    betBytecode = '0x'+e.target.result;
-	}
-	r.readAsText(f);
-    } else {
-	alert("!!!Failed to load contract source!!!");
-    }
-}
-
 function deploy() {
     if(betBytecode && betAbi) {
 	//get instance
 	var betContract = web3.eth.contract(betAbi);
-	//set constructor
-	var _betInterval = 30;
-	//defore deploying, estimate gas
-	var estimatedGas = web3.eth.estimateGas({data: betBytecode});
 	//create/deploy contract
-	var bet = betContract.new(_betInterval,{from: userAddress, data: betBytecode, gas: 900000},
+	var bet = betContract.new({from: userAddress, data: betBytecode, gas: 900000},
 				  function(e, contract) {
 				      if(!e) {
 					  if(!contract.address) {
@@ -58,6 +41,8 @@ function deploy() {
 					      betAddress = contract.address;
 					      fs.writeFile("betContractAddr.txt",betAddress,'utf8');
 					  }
+				      } else {
+					  alert(e);
 				      }
 				  });
     } else {
