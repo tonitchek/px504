@@ -4,7 +4,8 @@ REM Srcipt starting a node on a private Ethereum network
 SET DATADIR=%cd%/etherpn
 
 :: user unzipped package. Create datadir
-mkdir -p %cd%/%DATADIR%
+mkdir %DATADIR%
+move .\static-nodes.json %DATADIR%
 
 :: initialize blockchain
 .\geth.exe --datadir %DATADIR% init genesis.json
@@ -21,8 +22,8 @@ echo "---------"
 
 :: open index.html user interface
 start app/index.html
-start 192.168.1.1:8000
-start 192.168.1.1:3000
+start "" http://192.168.1.1:8000
+start "" http://192.168.1.1:3000
 
 :: start node
 .\geth.exe --datadir %DATADIR% --identity %HOSTNAME% --mine --minerthreads=1 --maxpeers 100 --networkid 170788 --rpcapi "db,personal,admin,eth,net,web3,miner" --rpc --rpccorsdomain "*"
