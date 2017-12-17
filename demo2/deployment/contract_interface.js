@@ -23,6 +23,10 @@ setInterval(function() {
 	var betBalance = web3.eth.getBalance(betAddress);
 	document.getElementById("contractBalance").value = web3.fromWei(betBalance,"ether");
 	document.getElementById("contractAddress").value = betAddress;
+	var betContract = web3.eth.contract(betAbi).at(betAddress);
+	var betAndValue = betContract.getBetsCountAndValue({from: userAddress, gas: 500000});
+	document.getElementById("betLength").value = betAndValue[0];
+	document.getElementById("totalBetValue").value = web3.fromWei(betAndValue[1],"ether");
     }
 }, 1000);
 
@@ -52,6 +56,16 @@ function deploy() {
 
 function updateAddr() {
     betAddress = document.getElementById("contractAddress").value;
+}
+
+function initFund() {
+    //get contract instance
+    if(betAbi && betAddress) {
+	var betContract = web3.eth.contract(betAbi).at(betAddress);
+	var amount = document.getElementById("initAmount").value;
+	alert(amount);
+	betContract.initBank({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+    }
 }
 
 function launch() {

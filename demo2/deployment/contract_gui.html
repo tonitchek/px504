@@ -20,9 +20,16 @@
       <p>Balance: <output name="contractBalance" id="contractBalance" >0</output> ETH</p>
     </form>
 
+    <p>
+      <label>Amount : </label><input type="number" name="init" id="initAmount" step="0.00001" value="0" /><label>ETH</label>
+      <button type="button" onclick="initFund();">Init Fund</button>
+    </p>
     <p><button type="button" onclick="launch();">Launch Bet</button></p>
     <p><button type="button" onclick="kill();">Destroy Bet</button></p>
 
+    <p>Bet number: <output name="betNumber" id="betLength" >0</output></p>
+    <p>Bet value: <output name="betValue" id="totalBetValue" >0</output></p>
+    
   </body>
 
   <script src="../app/src/web3.min.js"></script>
