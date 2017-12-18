@@ -34,7 +34,7 @@ setInterval(function() {
 }, 1000);
 
 function submit() {
-//    if(hasPlayed == false) {
+    if(hasPlayed == false) {
         if(betAddress) {
             var betContract = web3.eth.contract(betAbi).at(betAddress);
             //get user bet amount
@@ -55,14 +55,14 @@ function submit() {
             //start watching event for winners
             var event = betContract.Winner(function(error, result) {
                 if (!error) {
-		    resultsList += "address:"+result.args.player+", value:"+web3.fromWei(result.args.value,"ether")+", number:"+result.args.number.toNumber();
+		    resultsList += "player address:"+result.args.player+", profit:"+web3.fromWei(result.args.value,"ether")+", bet number:"+result.args.number.toNumber()+"\n";
 		    document.getElementById("results").value=resultsList;
         	}
             });
             alert("Merci d'avoir jouer! Attendez le lancement de la roulette");
 	    hasPlayed = true;
         }
-//    }
+    }
 }
 
 function send() {
