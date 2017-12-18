@@ -29,7 +29,7 @@ function appserver() {
     then
 	echo "DAPP server already started!!!"
     else
-	http-server ./www -p 8888 &> /dev/null &
+	http-server -c-1 ./www -p 8888 &> /dev/null &
         sleep 2
         firefox --new-tab http://localhost:8888 &> /dev/null &
         APPSERVER_PID=`ps -ef |grep "./www -p 8888" | awk 'NR==1 {print $2}'`
