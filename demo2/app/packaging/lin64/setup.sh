@@ -3,7 +3,8 @@
 DATADIR=$PWD/etherpn
 
 # user unzipped package. Create datadir
-mkdir -p $PWD/$DATADIR
+mkdir $DATADIR
+mv ./static-nodes.json $DATADIR
 
 # initialize blockchain
 ./geth --datadir $DATADIR init genesis.json
