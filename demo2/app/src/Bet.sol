@@ -54,7 +54,7 @@ contract Roulette {
     }
     
     function betSingle(uint number) public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Single) {
-        require(number <= 37);
+        require(number < 37);
         bets.push(Bet({
             betType: BetType.Single,
             player: msg.sender,
