@@ -16,6 +16,12 @@ contract Roulette {
     Bet[] public bets;
     uint initialFund;
 
+    event Winner (
+        address player,
+	uint value,
+	uint number
+    );
+	
     function getBetsCountAndValue() public constant returns(uint, uint) {
         uint value = 0;
         for (uint i = 0; i < bets.length; i++) {
@@ -39,6 +45,17 @@ contract Roulette {
         _;
     }
 
+    modifier playerMustBeNew() {
+        bool alreadyPlayed=false;
+        for (uint i = 0; i < bets.length; i++) {
+            if(msg.sender == bets[i].player) {
+	        alreadyPlayed=true;
+	    }
+        }
+	require(alreadyPlayed==false);
+        _;
+    }
+
     function getPayoutForType(BetType betType) private constant returns(uint) {
         if (betType == BetType.Single) return 10;
         if (betType == BetType.Even || betType == BetType.Odd) return 2;
@@ -53,7 +70,7 @@ contract Roulette {
         initialFund = msg.value;
     }
     
-    function betSingle(uint number) public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Single) {
+    function betSingle(uint number) public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Single) playerMustBeNew() {
         require(number < 37);
         bets.push(Bet({
             betType: BetType.Single,
@@ -63,7 +80,7 @@ contract Roulette {
         }));
     }
 
-    function betEven() public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Even) {
+    function betEven() public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Even) playerMustBeNew() {
         bets.push(Bet({
             betType: BetType.Even,
             player: msg.sender,
@@ -72,7 +89,7 @@ contract Roulette {
         }));
     }
 
-    function betOdd() public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Odd) {
+    function betOdd() public payable transactionMustContainEther() bankMustBeAbleToPayForBetType(BetType.Odd) playerMustBeNew() {
         bets.push(Bet({
             betType: BetType.Odd,
             player: msg.sender,
@@ -104,7 +121,10 @@ contract Roulette {
             }
             if (won) {
                 bets[i].player.transfer(bets[i].value * getPayoutForType(bets[i].betType));
-            }
+		Winner(bets[i].player,bets[i].value * getPayoutForType(bets[i].betType),number);
+            } else {
+	        Winner(bets[i].player,0,number);
+	    }
         }
 
         bets.length = 0;

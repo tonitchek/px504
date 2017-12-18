@@ -29,7 +29,7 @@
       <fieldset>
 	<legend>Select Bet type</legend>
         <p>
-          <label><input type="radio" name="betChoice" id="betSingle" value="single" /> Single (x36)</label>
+          <label><input type="radio" name="betChoice" id="betSingle" value="single" /> Single (x10)</label>
           <input type="number" id="userBetSingleNumber" min="0" max="37" step="1" value="0"> <br>
           <label><input type="radio" name="betChoice" id="betOdd" value="odd" /> Odd (x2)</label> <br>
           <label><input type="radio" name="betChoice" id="betEven" value="even" checked /> Even (x2)</label> <br>
@@ -38,6 +38,7 @@
     </form>
     <label>Mise : </label><input type="number" name="mise" id="miseAmount" step="0.00001" value="0" /><label>ETH</label>
     <p><button type="button" onclick="submit();">Bet</button></p>
+    <p><textarea id="results" rows="20" cols="100" wrap="on" readonly></textarea></p>
 
     <fieldset>
       <legend>Transaction</legend>

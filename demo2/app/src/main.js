@@ -9,6 +9,11 @@ var betAbi = contractJSON.abi;
 //set contract address deployed on the blockchain in order to interact with it
 var betAddress;
 
+//variable stroring if user already played
+var hasPlayed = false;
+//variable storing results list
+var resultsList="";
+
 //get user account address
 var userAddress = web3.eth.accounts[0];
 //set user account address in HTML output text
@@ -29,24 +34,35 @@ setInterval(function() {
 }, 1000);
 
 function submit() {
-    if(betAddress) {
-	var betContract = web3.eth.contract(betAbi).at(betAddress);
-        //get user bet amount
-        var amount = document.getElementById("miseAmount").value;
-        if(document.getElementById("betSingle").checked == true) {
-            //choice is single
-        	var userNumber = document.getElementById("userBetSingleNumber").value;
-        	betContract.betSingle(userNumber,{from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+//    if(hasPlayed == false) {
+        if(betAddress) {
+            var betContract = web3.eth.contract(betAbi).at(betAddress);
+            //get user bet amount
+            var amount = document.getElementById("miseAmount").value;
+            if(document.getElementById("betSingle").checked == true) {
+                //choice is single
+            	var userNumber = document.getElementById("userBetSingleNumber").value;
+            	betContract.betSingle(userNumber,{from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+            }
+            else if(document.getElementById("betOdd").checked == true) {
+                //choice is odd
+            	betContract.betOdd({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+            }
+            else {
+                //choice is even
+                betContract.betEven({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
+            }
+            //start watching event for winners
+            var event = betContract.Winner(function(error, result) {
+                if (!error) {
+		    resultsList += "address:"+result.args.player+", value:"+web3.fromWei(result.args.value,"ether")+", number:"+result.args.number.toNumber();
+		    document.getElementById("results").value=resultsList;
+        	}
+            });
+            alert("Merci d'avoir jouer! Attendez le lancement de la roulette");
+	    hasPlayed = true;
         }
-        else if(document.getElementById("betOdd").checked == true) {
-            //choice is odd
-        	betContract.betOdd({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
-        }
-        else {
-            //choice is even
-        	betContract.betEven({from: userAddress, value: web3.toWei(amount,"ether"), gas: 500000});
-        }
-    }
+//    }
 }
 
 function send() {
