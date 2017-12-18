@@ -1,6 +1,0 @@
-pi_img/*.img
-node*
-*.zip
-app/packaging/win64/PX504_BLOCKCHAIN_APP/*
-*.gz
-app/packaging/todo
