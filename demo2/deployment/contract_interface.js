@@ -43,7 +43,6 @@ function deploy() {
 					  } else {
 					      alert("Contract mined! Address: " + contract.address);
 					      betAddress = contract.address;
-					      fs.writeFile("betContractAddr.txt",betAddress,'utf8');
 					  }
 				      } else {
 					  alert(e);
